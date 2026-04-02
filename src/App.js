@@ -1,24 +1,40 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
+import UsersTable from './components/UsersTable/UsersTable';
+import UsersAdd from './components/UsersAdd/UsersAdd';
+
+
+const INITIAL_DATA = [
+  { 
+    id: 1,
+    firstName :  'Asmae',
+    lastName : 'Aouassar',
+    country : 'morocco'
+  },
+  {
+    id : 2,
+    firstName : 'Israe',
+    lastName : 'Haha',
+    country : 'Tunisie'
+  }, 
+  {
+    id: 3,
+    firstName : 'ali',
+    lastName : 'alio',
+    country : 'Algérie'
+  }
+]
 
 function App() {
+
+  const [users, setUsers] = useState(INITIAL_DATA);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <div className='container-fluid w-75 mx-auto'>
+    <UsersAdd />
+     <UsersTable users={users}></UsersTable>
+   </div>
   );
 }
 
