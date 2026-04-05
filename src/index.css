@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.mb-3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mb-3 .form-label{
+  width: 30%;
+}
+
+
+input.form-control[readOnly]{
+    background-color: #f0f0f0;
+    color: #555;   
+    border: none;           
+}
