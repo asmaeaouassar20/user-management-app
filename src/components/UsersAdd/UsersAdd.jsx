@@ -8,13 +8,9 @@ export default function UsersAdd(){
   const lastName=useRef(null);
   const country=useRef(null);
 
- 
-
   const styles = {
     margin : '20px auto'    
   }
-
-
 
   const handleSubmit = (e) => {
     e.preventDefault();

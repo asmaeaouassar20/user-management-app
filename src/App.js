@@ -1,5 +1,5 @@
 
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import './App.css';
 import UsersLayout from './components/UsersLayout/UsersLayout';
 
@@ -13,8 +13,14 @@ export const UsersContext = createContext( {
 
 function App() {
 
-  const [users, setUsers] = useState([ {id:1,firstName:'Asmae',lastNmae:'Aouassar',country:'maroc'}, {id:2,firstName:'ali',lastNmae:'alo',country:'tunisie'}]);
-  const [lastId, setLastId]  = useState(0);
+  const usersLS=localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : []; 
+
+  const [users, setUsers] = useState(usersLS);
+  const [lastId, setLastId]  = useState(usersLS.length);
+
+  useEffect( ()=> {
+    localStorage.setItem('users',JSON.stringify(users))
+  }, [users])
 
   const addUser = (data) => {      
     setUsers(prevState => [...prevState, data.payload])
